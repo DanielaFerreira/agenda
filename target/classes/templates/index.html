@@ -1,0 +1,46 @@
+<html lang="pt-br" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    <head>
+
+        <meta charset="UTF-8"/>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <meta name="viewport" content="width=device-width"/>
+        <title>AgendaP</title>
+                <script th:src="@{/webjars/jquery/jquery.min.js}" src="/webjars/jquery/jquery.min.js"></script>
+       
+        <link th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" href="/webjars/bootstrap/css/bootstrap.min.css"
+              rel="stylesheet"/>
+        <link th:href="@{/webjars/font-awesome/css/all.css}" href="/webjars/font-awesome/css/all.css"
+              rel="stylesheet"/>
+        <link th:href="@{/css/index.css}" href="/css/index.css" rel="stylesheet"/>
+        
+    </head>
+    <body>
+        <center>       
+            <a href="#">
+                <img th:src="@{/img/logoM.png}" src="/img/logoM.png" class="d-inline-block align-top" alt="logo AgendaP"/>
+            </a>
+        </center>
+
+        <div class="container home">
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <button class="navbar-toggler justify-content-center mx-auto" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-center mx-auto" id="navbarNav">
+                <div class="navbar-nav">
+                    <a class="nav-item nav-link active" id="usuario" href="#"><i class="far fa-user icone"></i>Usuários</a>
+                    <a class="nav-item nav-link" id="contato" href="#"><i class="far fa-address-card icone"></i>Contatos</a>
+                    <a class="nav-item nav-link" id="endereco" href="#"><i class="far fa-address-book icone"></i>Endereços</a>
+                    <a class="nav-item nav-link" id="meioContato" href="#"><i class="fas fa-stream icone"></i>Meios</a>
+                </div>
+            </div>
+        </nav>
+            <div class="jumbotron">
+                <h1 class="display-4">Olá, admin!</h1>
+                <p class="lead">Esta aplicação web servirá como uma Agenda P/ você manter seus usuários, contatos, endereços e meios contatos.</p>
+            </div>
+        </div>
+ <script th:src="@{/js/index.js}" src="/js/index.js"></script>
+
+    </body>
+</html>

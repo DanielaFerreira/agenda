@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta name="viewport" content="width=device-width" />
+        <title>Cadastro de Contato</title>
+                        <script th:src="@{/webjars/jquery/jquery.min.js}" src="/webjars/jquery/jquery.min.js"></script>
+       
+        <link th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" href="/webjars/bootstrap/css/bootstrap.min.css"
+              rel="stylesheet"/>
+        <link th:href="@{/webjars/font-awesome/css/all.css}" href="/webjars/font-awesome/css/all.css"
+              rel="stylesheet"/>
+        <link th:href="@{/css/index.css}" href="/css/index.css" rel="stylesheet"/>
+        
+    </head>
+    <body>
+                <center>       
+            <a href="#">
+                <img th:src="@{/img/logoM.png}" src="/img/logoM.png" class="d-inline-block align-top" alt="logo AgendaP"/>
+            </a>
+        </center>
+
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <button class="navbar-toggler justify-content-center mx-auto" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-center mx-auto" id="navbarNav">
+                <div class="navbar-nav">
+                    <a class="nav-item nav-link active" id="usuario" href="#"><i class="far fa-user icone"></i>Usuários</a>
+                    <a class="nav-item nav-link" id="contato" href="#"><i class="far fa-address-card icone"></i>Contatos</a>
+                    <a class="nav-item nav-link" id="endereco" href="#"><i class="far fa-address-book icone"></i>Endereços</a>
+                    <a class="nav-item nav-link" id="meioContato" href="#"><i class="fas fa-stream icone"></i>Meios</a>
+                </div>
+            </div>
+        </nav>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <strong>Cadastro de Contato</strong>
+            </div>
+            <div class="panel-body">
+                <form class="form-horizontal" th:object="${meioContato}" th:action="@{/meioContato/save}" method="POST" style="margin: 10px">
+                    <div class="form-group">
+                        <fieldset>
+                            <div class="form-group row">
+                                <div class="alert alert-danger" th:if="${#fields.hasAnyErrors()}">
+                                    <div th:each="detailedError : ${#fields.detailedErrors()}">
+                                        <span th:text="${detailedError.message}"></span>
+                                    </div>
+                                </div>
+                            </div> 					
+                            <div class="form-group row">
+                                <div class="col-md-1">
+                                    <input type="text" class="form-control input-sm" id="id" th:field="*{idMeioContato}" readOnly="readonly"/>
+                                </div>
+                            </div>
+                            <div class="form-group row">                                                          
+                                <div class="col-md-4" th:classappend="${#fields.hasErrors('tipoContato')}? 'has-error'">
+                                    <label>Tipo de Contato</label>
+                                    <input type="text" class="form-control input-sm" th:field="*{tipoContato}" autofocus="autofocus" placeholder="Informe o tipo de contato" maxlength="15"/>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-md-4" th:classappend="${#fields.hasErrors('conteudo')}? 'has-error'">
+                                    <label>Conteúdo</label> 
+                                    <input type="text" class="form-control input-sm" th:field="*{conteudo}" maxlength="150" placeholder="Informe o conteúdo"/>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-md-4" th:classappend="${#fields.hasErrors('idContato')}? 'has-error'">
+                                    <label>ID do Contato</label> 
+                                    <input type="text" class="form-control input-sm" th:field="*{idContato}" maxlength="11" placeholder="Informe o ID do contato"/>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </div>
+                    <div class="form-group row">
+                        <button type="submit" class="btn btn-sm btn-primary">Salvar</button>
+                        <a th:href="@{/meioContato}" class="btn btn-sm btn-default">Cancelar</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </body>
+</html>

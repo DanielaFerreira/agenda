@@ -1,0 +1,31 @@
+/* 
+    Created on : 19/06/2019, 22:06:53
+    Author     : eddunic
+*/
+
+.icone{
+    margin-right: 8px; 
+}
+
+.navbar, .img{
+    background-color: white;
+}
+
+.jumbotron{
+    margin-top: 10px;
+}
+
+#usuario:hover, #endereco:hover, #meioContato:hover, #contato:hover{
+    color: brown;
+    box-shadow:
+        1px 1px #53a7ea,
+        2px 2px #53a7ea,
+        3px 3px #53a7ea;
+    -webkit-transform: translateX(-3px);
+    transform: translateX(-3px);
+    border-color: brown;
+}
+
+.home{
+    background-color: maroon;
+}
